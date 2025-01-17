@@ -9,7 +9,7 @@ team_members = ["Elijah Salgado", "Brendon Mwamba", "Ethan Walden", "Savannah Pu
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # Function that writes to specified file
-def write_to_file_in_path(path)
+def write_to_file_in_path(path):
     with open(path, "w") as file:
         file.write(f"Team Members:\n{', '.join(team_members)}\n")
         file.write(f"Timestamp: {timestamp}\n")
