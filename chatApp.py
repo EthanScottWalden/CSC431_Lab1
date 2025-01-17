@@ -5,17 +5,20 @@ from datetime import datetime
 team_name = "PhishersOfMen"
 team_members = ["Elijah Salgado", "Brendon Mwamba", "Ethan Walden", "Savannah Punak"]
 
-# Define the file path
-desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-file_path = os.path.join(desktop_path, f"{team_name}.txt")
-
 # Get current timestamp
 timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-# Write to file
-with open(file_path, "w") as file:
-    file.write(f"Team Members:\n{', '.join(team_members)}\n")
-    file.write(f"Timestamp: {timestamp}\n")
+# Function that writes to specified file
+def write_to_file_in_path(path)
+    with open(path, "w") as file:
+        file.write(f"Team Members:\n{', '.join(team_members)}\n")
+        file.write(f"Timestamp: {timestamp}\n")
+try:
+    # Attempting to write to local machine desktop
+    write_to_file_in_path(os.path.join(os.path.expanduser("~"), "Desktop", f"{team_name}.txt"))
+except:
+    # If above fails, attempting to write to onedrive desktop
+    write_to_file_in_path(os.path.join(os.path.expanduser("~"), "OneDrive", "Desktop", f"{team_name}.txt"))
 
 print(f"File written to {file_path}")
 
